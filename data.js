@@ -6,43 +6,54 @@
 
 class Stack {
   constructor() {
-    this.newQueue = [];
+    this.newStack = [];
     this.pointer = 0;
   }
   // Stack.prototype.add
   add(item) {
-    this.newQueue[this.pointer] = item;
+    this.newStack[this.pointer] = item;
     this.pointer++;
     return this; // for chaining, do not edit
   }
   // Stack.prototype.remove
   remove() {
     this.pointer--;
-    let x = this.newQueue[this.pointer];
-    this.newQueue[this.pointer] === null;
-    return x;
+    const topItem = this.newStack[this.pointer];
+    this.newStack[this.pointer] === null;
+    return topItem;
   }
 }
 
 // -----------------------------------------
 // Queues
-// EXTRA CREDIT: remove the `pending` line in the spec to attempt.
 
 class Queue {
-  // Queue constructor function
   constructor() {
-    // your code here
+    this._init();
+  }
+  // Init f-n to reset head/tail
+  _init() {
+    this.newQueue = [];
+    this.head = 0;
+    this.tail = -1;
   }
 
   // Queue.prototype.add
   add(item) {
-    // your code here
+    this.tail++;
+    this.newQueue[this.tail] = item;
     return this; // for chaining, do not edit
   }
 
   // Queue.prototype.remove
   remove() {
-    // your code here
+    const first = this.newQueue[this.head];
+
+    if (this.head > this.tail) return undefined;
+    this.head++;
+    if (this.head > this.tail) this._init();
+
+    return first;
   }
 }
 
