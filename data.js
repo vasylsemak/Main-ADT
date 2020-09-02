@@ -24,6 +24,27 @@ class Stack {
   }
 }
 
+// ------
+// class Stack {
+//   constructor() {
+//     this.storage = {};
+//     this.size = 0;
+//   }
+//   // Stack.prototype.add
+//   add(item) {
+//     this.size++;
+//     this.storage[this.size] = item;
+//     return this; // for chaining, do not edit
+//   }
+//   // Stack.prototype.remove
+//   remove() {
+//     let last = this.storage[this.size];
+//     delete this.storage[this.size];
+//     this.size--;
+//     return last;
+//   }
+// }
+
 // -----------------------------------------
 // Queues
 
@@ -56,6 +77,29 @@ class Queue {
     return first;
   }
 }
+
+// --------
+// class Queue {
+//   constructor() {
+//     this.storage = {};
+//     this.head = 1;
+//     this.tail = 1;
+//   }
+//   // Queue.prototype.add
+//   add(item) {
+//     this.storage[this.tail] = item;
+//     this.tail++;
+//     return this; // for chaining, do not edit
+//   }
+//   // Queue.prototype.remove
+//   remove() {
+//     let toRemove = this.storage[this.head];
+//     if (!toRemove) return undefined;
+//     delete this.storage[this.head];
+//     this.head++;
+//     return toRemove;
+//   }
+// }
 
 //-----------------------------------------
 // Association lists
