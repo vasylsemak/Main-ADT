@@ -60,8 +60,6 @@ describe('A stack', function () {
 });
 
 describe('A queue', function () {
-  // pending('This is an extra-credit suite. Remove this line to try it.');
-
   let queue,
     uniqueObj = { id: 123 };
   beforeEach(() => {

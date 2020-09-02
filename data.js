@@ -57,61 +57,27 @@ class Queue {
   }
 }
 
-// -----------------------------------------
-// Linked lists
-
-// EXTRA CREDIT: remove the `pending` line in the spec to attempt.
-
-class LinkedList {
-  // LinkedList constructor function
-  constructor() {
-    this.head = this.tail = null;
-  }
-
-  // LinkedList.prototype.addToTail
-  addToTail(item) {
-    // your code here
-    return this; // for chaining, do not edit
-  }
-
-  // LinkedList.prototype.removeFromTail
-  removeFromTail() {
-    // your code here
-  }
-
-  // LinkedList.prototype.forEach
-  forEach(callbackFunc) {
-    // your code here
-  }
-}
-
-class ListNode {
-  // ListNode constructor function
-  constructor(item, prev, next) {
-    this.item = item;
-    this.next = next || null;
-    this.prev = prev || null;
-  }
-}
-
 //-----------------------------------------
 // Association lists
 
 class Alist {
-  // Alist constructor function
   constructor() {
-    // your code here
+    this.head = null;
   }
-
   // Alist.prototype.set
   set(key, value) {
-    // your code here
-    return this; // for chaining; do not edit
+    let newNode = new AlistNode(key, value, this.head);
+    this.head = newNode;
+    return this;
   }
-
   // Alist.prototype.get
   get(key) {
-    // your code here
+    let curNode = this.head;
+    while (curNode) {
+      if (curNode.key === key) return curNode.value;
+      curNode = curNode.next;
+    }
+    return undefined;
   }
 }
 
