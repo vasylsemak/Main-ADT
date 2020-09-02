@@ -9,8 +9,8 @@
 // You may use an Object or Array to store your data and keep head and tail pointers (variables) that change when functions like enqueue and dequeue are called.
 
 describe('A stack', function () {
-
-  let stack, uniqueObj = { id: 456 };
+  let stack,
+    uniqueObj = { id: 456 };
   beforeEach(() => {
     stack = new Stack();
   });
@@ -57,14 +57,13 @@ describe('A stack', function () {
     expect(s2.remove()).toBe('JavaScript');
     expect(s2.remove()).toBe(undefined);
   });
-
 });
 
 describe('A queue', function () {
+  // pending('This is an extra-credit suite. Remove this line to try it.');
 
-  pending('This is an extra-credit suite. Remove this line to try it.');
-
-  let queue, uniqueObj = { id: 123 };
+  let queue,
+    uniqueObj = { id: 123 };
   beforeEach(() => {
     queue = new Queue();
   });
@@ -111,5 +110,4 @@ describe('A queue', function () {
     expect(queue.remove()).toBe('fullstack');
     expect(queue.remove()).toBe(undefined);
   });
-
 });
