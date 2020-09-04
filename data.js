@@ -125,6 +125,73 @@ class Alist {
   }
 }
 
+// Doubly linked list
+class doubleLL {
+  constructor() {
+    this.head = this.tail = null;
+  }
+
+  append(val) {
+    if (!this.tail) this.head = this.tail = new Node(val);
+    else {
+      const oldTale = this.tail;
+      this.tail = new Node(val);
+
+      oldTale.next = this.tail;
+      this.tail.prev = oldTale;
+    }
+  }
+
+  prepend(val) {
+    if (!this.head) this.head = this.tail = new Node(val);
+    else {
+      const oldHead = this.head;
+      this.head = new Node(val);
+
+      oldHead.prev = this.head;
+      this.head.next = oldHead;
+    }
+  }
+
+  removeHead() {
+    if (!this.head) return null;
+    else {
+      const curHead = this.head;
+
+      if (this.head === this.tail) this.head = this.tail = null;
+      else {
+        this.head = this.head.next;
+        this.head.prev = null;
+      }
+      return curHead.value;
+    }
+  }
+
+  removeTail() {
+    if (!this.tail) return null;
+    else {
+      const curTail = this.tail;
+
+      if (this.tail === this.head) this.tail = this.head = null;
+      else {
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+      }
+      return curTail.value;
+    }
+  }
+
+  search(val) {
+    let curNode = this.head;
+
+    while (curNode) {
+      if (curNode.value === val) return curNode.value;
+      curNode = curNode.next;
+    }
+    return 'no value found!';
+  }
+}
+
 class AlistNode {
   // AlistNode constructor function
   constructor(key, value, next) {
@@ -133,6 +200,23 @@ class AlistNode {
     this.next = next;
   }
 }
+
+class Node {
+  constructor(value, prev, next) {
+    this.value = value;
+    this.prev = prev || null;
+    this.next = next || null;
+  }
+}
+
+let myLL = new doubleLL();
+myLL.append(1);
+myLL.append(2);
+myLL.prepend(-1);
+myLL.prepend(-2);
+
+// console.log(myLL.search(-2));
+// console.log('myLL-> ', myLL);
 
 //-----------------------------------------
 // Hash Tables
