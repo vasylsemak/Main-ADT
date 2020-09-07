@@ -136,10 +136,10 @@ class doubleLL {
     else {
       const oldTale = this.tail;
       this.tail = new Node(val);
-
       oldTale.next = this.tail;
       this.tail.prev = oldTale;
     }
+    return this;
   }
 
   prepend(val) {
@@ -147,17 +147,16 @@ class doubleLL {
     else {
       const oldHead = this.head;
       this.head = new Node(val);
-
       oldHead.prev = this.head;
       this.head.next = oldHead;
     }
+    return this;
   }
 
   removeHead() {
     if (!this.head) return null;
     else {
       const curHead = this.head;
-
       if (this.head === this.tail) this.head = this.tail = null;
       else {
         this.head = this.head.next;
@@ -171,7 +170,6 @@ class doubleLL {
     if (!this.tail) return null;
     else {
       const curTail = this.tail;
-
       if (this.tail === this.head) this.tail = this.head = null;
       else {
         this.tail = this.tail.prev;
@@ -183,12 +181,34 @@ class doubleLL {
 
   search(val) {
     let curNode = this.head;
-
     while (curNode) {
       if (curNode.value === val) return curNode.value;
       curNode = curNode.next;
     }
     return 'no value found!';
+  }
+
+  getNthElem(elemOrder) {
+    let count = 1;
+    let curHead = this.head;
+    while (curHead) {
+      if (count === elemOrder) return curHead;
+      curHead = curHead.next;
+      count++;
+    }
+    return null;
+  }
+
+  insertElem(elemToInsert, position) {
+    let prevNode = this.getNthElem(position - 1);
+    let curNode = prevNode.next;
+    let newNode = new Node(elemToInsert);
+
+    newNode.next = curNode;
+    curNode.prev = newNode;
+    prevNode.next = newNode;
+    newNode.prev = prevNode;
+    return this;
   }
 }
 
@@ -209,16 +229,7 @@ class Node {
   }
 }
 
-let myLL = new doubleLL();
-myLL.append(1);
-myLL.append(2);
-myLL.prepend(-1);
-myLL.prepend(-2);
-
-// console.log(myLL.search(-2));
-// console.log('myLL-> ', myLL);
-
-//-----------------------------------------
+// -----------------------------------------
 // Hash Tables
 
 function hash(key) {
