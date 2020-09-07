@@ -188,6 +188,15 @@ class doubleLL {
     return 'no value found!';
   }
 
+  findLength(l = 0) {
+    let curNode = this.head;
+    while (curNode) {
+      l++;
+      curNode = curNode.next;
+    }
+    return l;
+  }
+
   getNthElem(elemOrder) {
     let count = 1;
     let curHead = this.head;
@@ -228,6 +237,13 @@ class Node {
     this.next = next || null;
   }
 }
+
+// let myLL = new doubleLL();
+// myLL.append(1);
+// myLL.append(2);
+// myLL.prepend(0);
+// myLL.insertElem('A', 2);
+// console.log(myLL);
 
 // -----------------------------------------
 // Hash Tables
