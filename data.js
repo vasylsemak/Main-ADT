@@ -274,39 +274,3 @@ class HashTable {
     // your code here. DO NOT simply get a prop. from an obj., that's cheating!
   }
 }
-
-//-----------------------------------------
-// Binary search trees
-
-class BinarySearchTree {
-  // BinarySearchTree constructor function
-  constructor(val) {
-    // your code here
-  }
-
-  // BinarySearchTree.prototype.insert
-  insert(val) {
-    // your code here
-    return this; // for chaining, do not edit
-  }
-
-  // BinarySearchTree.prototype.min
-  min() {
-    // your code here
-  }
-
-  // BinarySearchTree.prototype.max
-  max() {
-    // your code here
-  }
-
-  // BinarySearchTree.prototype.contains
-  contains(val) {
-    // your code here
-  }
-
-  // BinarySearchTree.prototype.traverse
-  traverse(callbackFunc) {
-    // your code here
-  }
-}
