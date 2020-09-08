@@ -257,20 +257,22 @@ function hash(key) {
 }
 
 class HashTable {
-  // HashTable constructor function
   constructor() {
     this.buckets = Array(20);
-    // your code here
+    for (let i = 0; i < this.buckets.length; i++) {
+      this.buckets[i] = new Alist();
+    }
   }
 
-  // HashTable.prototype.set
   set(key, value) {
-    // your code here. DO NOT simply set a prop. on an obj., that's cheating!
-    return this; // for chaining, do not edit
+    const idx = hash(key);
+    this.buckets[idx].set(key, value);
+    return this;
   }
 
-  // HashTable.prototype.get
   get(key) {
-    // your code here. DO NOT simply get a prop. from an obj., that's cheating!
+    const idx = hash(key);
+    const val = this.buckets[idx].get(key);
+    return val;
   }
 }

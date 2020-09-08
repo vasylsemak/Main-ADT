@@ -7,7 +7,6 @@
 // NOTE: this suite requires a working Association List.
 
 describe('A hash table', function () {
-
   let hashTable;
   beforeEach(() => {
     hashTable = new HashTable();
@@ -28,7 +27,7 @@ describe('A hash table', function () {
 
   it('can add multiple items', function () {
     hashTable.set('house', 'Gryffindor').set('glasses', true);
-    expect(hashTable.buckets[ 8].head.value).toBe('Gryffindor');
+    expect(hashTable.buckets[8].head.value).toBe('Gryffindor');
     expect(hashTable.buckets[14].head.value).toBe(true);
   });
 
@@ -51,5 +50,4 @@ describe('A hash table', function () {
     hashTable.set('year', 'MMXV').set('year', 2015).set('discount', true);
     expect(hashTable.get('year')).toBe(2015);
   });
-
 });
